@@ -12,12 +12,8 @@ class Product(models.Model):
     #TODO
     # Name, Description,Price,Categorie,
     # SKU,created, ...
-
     #separate product options:
     #Time, color, size,type
-
-
-    pass
 
 class Category(models.Model):
     #TODO
