@@ -19,15 +19,27 @@ class Product(models.Model):
     modified = models.DateTimeField(auto_now=True, null=True)
     active = models.BooleanField(default=True)
     time = models.IntegerField(null=True)#Days to make the product
+    category = models.ManyToManyField('Category',blank=True)
     #Product manager
     objects = ProductManager()
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ('title',)
     
     def get_absolute_url(self):
         return reverse('product', kwargs=(self.slug))
         #return "/product/{slug}".format(slug=self.slug)
+
+
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.PROTECT,null=True)
+    image = models.ImageField(upload_to='products/', null=True)
+
+    def __str__(self):
+        return self.product.title
 
 
 class Category(models.Model):
@@ -52,11 +64,4 @@ def product_pre_save_reciever(sender, instance, *args, **kwargs):
 
 pre_save.connect(product_pre_save_reciever, sender=Product)
 
-#More models
-
-
-class ProductImage(models.Model):
-    pass
-
-class Types(models.Model):
-    pass
+#More models  
