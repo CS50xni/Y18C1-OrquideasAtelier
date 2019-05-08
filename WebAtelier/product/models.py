@@ -19,7 +19,7 @@ class Product(models.Model):
     modified = models.DateTimeField(auto_now=True, null=True)
     active = models.BooleanField(default=True)
     time = models.PositiveIntegerField(null=True)#Days to make the product
-    category = models.ForeignKey('Category',on_delete=models.PROTECT,null=True)
+    category = models.ForeignKey('Category',on_delete=models.SET_NULL,null=True)
     #Product manager
     objects = ProductManager()
 
@@ -35,7 +35,7 @@ class Product(models.Model):
 
 
 class ProductImage(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.PROTECT,null=True)
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL,null=True)
     image = models.ImageField(upload_to='products/', null=True)
     created_at = models.DateTimeField(default=timezone.now)
     modified_at = models.DateTimeField(default=timezone.now)
