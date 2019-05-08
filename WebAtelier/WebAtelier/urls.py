@@ -21,5 +21,5 @@ urlpatterns = [
     path('', views.index ,name="index"),
     path('admin/', admin.site.urls),
     path('products/', ProductListView.as_view()),
-    path('products/<pk>/<title>', ProductDetailView.as_view()),
+    path('products/<slug:slug>-<int:pk>/', ProductDetailView.as_view()),
 ]
