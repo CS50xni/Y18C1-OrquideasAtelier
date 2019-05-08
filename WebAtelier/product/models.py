@@ -18,8 +18,8 @@ class Product(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
     modified = models.DateTimeField(auto_now=True, null=True)
     active = models.BooleanField(default=True)
-    time = models.IntegerField(null=True)#Days to make the product
-    category = models.ManyToManyField('Category',blank=True)
+    time = models.PositiveIntegerField(null=True)#Days to make the product
+    category = models.ForeignKey('Category',on_delete=models.PROTECT,null=True)
     #Product manager
     objects = ProductManager()
 
@@ -37,6 +37,8 @@ class Product(models.Model):
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT,null=True)
     image = models.ImageField(upload_to='products/', null=True)
+    created_at = models.DateTimeField(default=timezone.now)
+    modified_at = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return self.product.title
@@ -63,5 +65,3 @@ def product_pre_save_reciever(sender, instance, *args, **kwargs):
         instance.slug = unique_slug_generator(instance)
 
 pre_save.connect(product_pre_save_reciever, sender=Product)
-
-#More models  

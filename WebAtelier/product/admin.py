@@ -2,14 +2,23 @@ from django.contrib import admin
 from .models import Product, Category, ProductImage
 # Register your models here.
 
-class ProductAdmin(admin.ModelAdmin):
-    list_display = ['__str__', 'slug']
-    class Meta:
-        model = Product
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
-    extra = 0
+    exclude = ['created_at', 'modified_at']
 
-admin.site.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['__str__', 'slug','created_at','modified']
+    inlines = [ProductImageInline]
+    exclude = ['created_at']
+    class Meta:
+        model = Product
+
+class CategoryAdmin(admin.ModelAdmin):
+    exclude = ['created_at']
+    class Meta:
+        model = Category
+        
+
+admin.site.register(Product, ProductAdmin)
 admin.site.register(Category)
