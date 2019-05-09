@@ -14,9 +14,6 @@ class ProductListView(ListView):
 class ProductDetailView(DetailView):
     template_name = "Product/product_detail.html"
 
-    def get_queryset(self):
-        return Product.objects.all()
-
     def get_context_data(self, *args, **kwargs):
         context = super(ProductDetailView, self).get_context_data(*args, **kwargs)
         cart_product_form = CartAddProductForm()

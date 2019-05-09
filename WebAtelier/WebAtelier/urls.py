@@ -24,8 +24,9 @@ urlpatterns = [
     path('', views.index ,name="index"),
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls'), name='cart'),
+    #path('category/<slug:slug>', )
     path('products/', ProductListView.as_view(), name='products'),
-    path('products/<slug:slug>-<int:pk>/', ProductDetailView.as_view(), name='products_detail'),
+    path('products/<slug:slug>-<int:id>/', ProductDetailView.as_view(), name='products_detail'),
 ]
 
 if settings.DEBUG:
