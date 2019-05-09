@@ -135,3 +135,6 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, "media")
+
+#var CART_SESSION_ID
+CART_SESSION_ID = 'cart'

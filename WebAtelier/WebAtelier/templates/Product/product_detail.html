@@ -1,2 +1,33 @@
-{{ object.title}}
-{{ object.description}}
+{% extends 'base.html' %}
+{%block content%}
+
+
+<div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h3>{{ object.title }}</h3>
+          <p>
+            <a href="{{ product.category.get_absolute_url}}">
+              {{ object.category }}
+            </a>
+          </p>
+          <p style="font-size:20px;color:#d9534f">${{ product.price }}</p>
+
+          <form action="{% url 'cart:cart_add' product.id %}" method="post">
+            {{ cart_product_form }}
+            {% csrf_token %}
+            <input class="btn btn-primary" type="submit" value="Add to cart">
+          </form>
+
+          <div style="margin-top:20px;">
+            {{ object.description|linebreaks }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+
+
+{%endblock%}

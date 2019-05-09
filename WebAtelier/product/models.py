@@ -28,7 +28,7 @@ class Product(models.Model):
 
     class Meta:
         ordering = ('title',)
-    
+
     def get_absolute_url(self):
         return reverse('products_detail', kwargs={'slug': self.slug, 'id': self.id})
         #return "/products/{slug}-{id}/".format(slug=self.slug,id=self.id)
