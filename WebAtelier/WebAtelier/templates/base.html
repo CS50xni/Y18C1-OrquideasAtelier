@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+      {% block head %}
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title%}{% endblock%}</title>
+    <link rel="stylesheet" href="{% static 'stylesheet/main.css' %}">
+    <link rel="stylesheet" href="{% static 'stylesheet/foundation.css' %}">
+    <link rel="stylesheet" href="{% static 'stylesheet/foundation.min.css' %}">
+    {% endblock %}
+  </head>
+  <body>
+      {%block content%}
+      
+   
+    
+    {% endblock %}
+    <script src="{% static 'javascript/main.js' %}"></script>
+    <script src="{% static 'javascript/vendor/jquery.js' %}"></script>
+    <script src="{% static 'javascript/vendor/foundation.js' %}"></script>
+    <script src="{% static 'javascript/vendor/foundation.min.js' %}"></script>
+    <script src="{% static 'javascript/vendor/what-input.js' %}"></script>
+  </body>
+</html>
