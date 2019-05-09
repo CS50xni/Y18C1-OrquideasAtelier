@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title%} Shop {% endblock %}
+{% block content%}
+    <hr>
+    <article class="grid-container">
+        <div class="grid-x grid-margin-x small-up-2 medium-up-2 large-up-4">
+                {% for pd in product_list %}
+            <div class="cell">    
+                <img class="thumbnail" src="{{ pd.get_image_url}}" alt="{{ pd.slug}}">
+                <h5><a href="{{ pd.get_absolute_url}}">{{ pd.title}}</a></h5>
+                <p>${{ pd.price }}</p>
+                <p>{{ pd.description }}</p>
+                <a href="#" class="button expanded">Add to cart</a>
+            </div>
+            {% endfor %}
+        </div>
+    </article>
+<hr>
+{%endblock%}
