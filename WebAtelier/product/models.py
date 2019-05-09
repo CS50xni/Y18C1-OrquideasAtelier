@@ -30,9 +30,12 @@ class Product(models.Model):
         ordering = ('title',)
     
     def get_absolute_url(self):
-        return reverse('product', kwargs=(self.slug))
-        #return "/product/{slug}".format(slug=self.slug)
+        return reverse('products_detail', kwargs={'slug': self.slug, 'id': self.id})
+        #return "/products/{slug}-{id}/".format(slug=self.slug,id=self.id)
 
+    def get_image_url(self):
+        img = self.productimage_set.first()
+        return img.image.url if img else img
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.SET_NULL,null=True)
