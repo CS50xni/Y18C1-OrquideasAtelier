@@ -1,0 +1,10 @@
+#visual studio code
+.vscode
+
+#virtual environment
+bin/
+include/
+lib/
+
+#enviroment variables
+.env
