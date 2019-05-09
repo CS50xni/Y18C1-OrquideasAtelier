@@ -24,5 +24,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls'), name='cart'),
     path('products/', ProductListView.as_view(), name='products'),
-    path('products/<slug:slug>-<int:pk>/', ProductDetailView.as_view()),
+    path('products/<slug:slug>-<int:pk>/', ProductDetailView.as_view(), name='products_detail'),
 ]

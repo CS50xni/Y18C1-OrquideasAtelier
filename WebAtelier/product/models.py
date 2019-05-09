@@ -28,7 +28,7 @@ class Product(models.Model):
 
     class Meta:
         ordering = ('title',)
-    
+
     def get_absolute_url(self):
         return reverse('product', kwargs=(self.slug))
         #return "/product/{slug}".format(slug=self.slug)
@@ -64,4 +64,4 @@ def product_pre_save_reciever(sender, instance, *args, **kwargs):
 
 pre_save.connect(product_pre_save_reciever, sender=Product)
 
-#More models  
+#More models
