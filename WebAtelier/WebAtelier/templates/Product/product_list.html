@@ -10,7 +10,11 @@
                 <h5><a href="{{ pd.get_absolute_url}}">{{ pd.title}}</a></h5>
                 <p>${{ pd.price }}</p>
                 <p>{{ pd.description }}</p>
-                <a href="#" class="button expanded">Add to cart</a>
+                <form action="{% url 'cart:cart_add' pd.id %}" method="post">
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                    <input class="button expanded" type="submit" value="Add to cart">
+                  </form>
             </div>
             {% endfor %}
         </div>
