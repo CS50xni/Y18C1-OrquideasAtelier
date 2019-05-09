@@ -8,3 +8,6 @@ lib/
 
 #enviroment variables
 .env
+
+#python cache
+__pycache__/
