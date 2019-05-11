@@ -91,3 +91,8 @@ transition: all 0.3s ease;
     font-weight: 600;
     margin-top: 0.8rem;
   }
+
+.product-title {
+    color: #2154e3; 
+    font-size: 0.95rem;
+}
