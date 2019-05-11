@@ -38,6 +38,7 @@
       <div class="medium-6 large-5 cell large-offset-1">
         <h3>{{ object.title }}</h3>
         <p>{{ object.description }}</p>
+        <h3>Price: ${{object.price}}</h3>
         <div class="grid-x">
         <form action="{% url 'cart:cart_add' product.id %}" method="post">
           {{ cart_product_form }}
