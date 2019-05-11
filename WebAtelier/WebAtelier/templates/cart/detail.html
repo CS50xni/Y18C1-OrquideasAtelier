@@ -2,7 +2,7 @@
 {% block content %}
   <div class="row">
     <div class="col-md-12">
-      <h1>Your shopping cart</h1>
+      <h1 align="center" style="font-family:verdana;">Your Cart</h1>
 
       <table class="table">
         <thead>
@@ -18,9 +18,7 @@
             {% with product=item.product %}
               <tr>
                 <td>
-                  <a href="#">
-
-                  </a>
+                  <img src="{{ product.get_image_url}}" alt="{{ product.slug}}" style="width:120px;">
                 </td>
                 <td>{{ product.title }}</td>
                 <td>
@@ -41,7 +39,7 @@
           <tr class="total">
             <td><strong>Total</strong></td>
             <td colspan="4"></td>
-            <td style="color:#337ab7; font-size: 20px;">${{ cart.get_total_price_after_discount|floatformat:"2" }}</td>
+            <td style="color:#337ab7; font-size: 20px;">${{ cart.get_total_price|floatformat:"2" }}</td>
           </tr>
         </tbody>
       </table>

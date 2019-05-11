@@ -8,9 +8,10 @@
         <div class="panel-body">
           <h3>{{ object.title }}</h3>
           <p>
-            <a href="{#{ product.category.get_absolute_url}#}">
-              {{ object.category }}
-            </a>
+            <!-- <a href="{#{ product.category.get_absolute_url}#}">
+
+            </a> -->
+            {{ object.category }}
           </p>
           <p style="font-size:20px;color:#d9534f">${{ product.price }}</p>
 
