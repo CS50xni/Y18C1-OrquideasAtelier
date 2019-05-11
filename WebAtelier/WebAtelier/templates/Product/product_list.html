@@ -16,7 +16,7 @@
                     {% csrf_token %}
                     <input class="button expanded" type="submit" value="Add to cart">
                 </form> -->
-                <h5 align="center"><a href="{{ pd.get_absolute_url}}">{{"Add to cart"}}</a></h5>
+                <h5 ><a class="button" href="{{ pd.get_absolute_url}}">{{"Add to cart"}}</a></h5>
             </div>
             {% endfor %}
         </div>
