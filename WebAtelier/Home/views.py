@@ -17,3 +17,7 @@ class Home(ListView):
     def get_context_data(self, *args, **kwargs):
         context = super(Home, self).get_context_data(*args, **kwargs)
         return context
+
+
+def contact(request):
+    return render(request, 'Home/contact.html')

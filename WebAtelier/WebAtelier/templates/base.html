@@ -18,9 +18,9 @@
           <img src="{{ MEDIA_URL}}logo.png" alt="">
         </h1>
         <ul class="menu align-center sticky-shrinknav-menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Shop</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a href="{% url 'index'%}">Home</a></li>
+          <li><a href="{% url 'products'%}">Shop</a></li>
+          <li><a href="{% url 'contact'%}">Contact</a></li>
         </ul>
       </header>
       {%block content%}
