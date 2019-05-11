@@ -7,21 +7,31 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title%}{% endblock%}</title>
-    <link rel="stylesheet" href="{% static 'stylesheet/main.css' %}">
     <link rel="stylesheet" href="{% static 'stylesheet/foundation.css' %}">
-    <link rel="stylesheet" href="{% static 'stylesheet/foundation.min.css' %}">
+    <link rel="stylesheet" href="{% static 'stylesheet/style.css' %}">
     {% endblock %}
   </head>
   <body>
+    <!-- HEADER -->
+    <header class="sticky-shrinknav-header">
+        <h1 align="center" class="sticky-shrinknav-header-title ">
+          <img src="{{ MEDIA_URL}}logo.png" alt="">
+        </h1>
+        <ul class="menu align-center sticky-shrinknav-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </header>
       {%block content%}
       
    
     
     {% endblock %}
-    <script src="{% static 'javascript/main.js' %}"></script>
     <script src="{% static 'javascript/vendor/jquery.js' %}"></script>
     <script src="{% static 'javascript/vendor/foundation.js' %}"></script>
     <script src="{% static 'javascript/vendor/foundation.min.js' %}"></script>
     <script src="{% static 'javascript/vendor/what-input.js' %}"></script>
+    <script src="{% static 'javascript/app.js' %}"></script>
   </body>
 </html>
