@@ -4,22 +4,25 @@
     <hr>
     <article class="grid-container">
         <div class="grid-x grid-margin-x small-up-2 medium-up-2 large-up-4">
-                {% for pd in product_list %}
-            <div class="cell">
-                <img class="thumbnail" src="{{ pd.get_image_url}}" alt="{{ pd.slug}}">
-                <!-- <h5><a href="{{ pd.get_absolute_url}}">{{ pd.title}}</a></h5> -->
-                <p>{{pd.title}}</p>
-                <p>${{ pd.price }}</p>
-                <p>{{ pd.description }}</p>
-                <!-- <form action="{% url 'cart:cart_add' pd.id %}" method="post">
-                    {{ cart_product_form }}
-                    {% csrf_token %}
-                    <input class="button expanded" type="submit" value="Add to cart">
-                </form> -->
-                <h5 align="center"><a href="{{ pd.get_absolute_url}}">{{"Add to cart"}}</a></h5>
-            </div>
-            {% endfor %}
-        </div>
+                {% for item in product_list %}
+                <div class="cell">
+                <div class="product-card">
+                        <div class="product-card-thumbnail">
+                          <img src="{{item.get_image_url}}"/>
+                        </div>
+                        <h2 class="product-card-title"><a href="{{ item.get_absolute_url}}">{{ item.title}}</a></h2>
+                        {% if item.description%}
+                        <span class="product-card-desc"> {{ item.description}} </span>
+                        {% endif %}
+                        <span class="product-card-price">${{ item.price }}</span>
+                        <div class="product-card-colors">
+                          <a href="{{ item.get_absolute_url}}" class="button expanded product-card-color-option">View Product</a>
+                          </div>
+                      </div>
+                </div>
+                {% endfor%}
     </article>
 <hr>
+
+
 {%endblock%}

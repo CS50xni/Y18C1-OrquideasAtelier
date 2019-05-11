@@ -2,23 +2,23 @@
 {%block content%}
 
 
-<div class="row">
+<!-- <div class="row">
     <div class="col-md-8">
       <div class="panel panel-default">
         <div class="panel-body">
           <h3>{{ object.title }}</h3>
-          <p>
+          <p> -->
             <!-- <a href="{#{ product.category.get_absolute_url}#}">
 
             </a> -->
-            {{ object.category }}
+            <!-- {{ object.category }}
           </p>
-          <p style="font-size:20px;color:#d9534f">${{ product.price }}</p>
+          <p style="font-size:20px;color:#d9534f">${{ object.price }}</p>
 
           <form action="{% url 'cart:cart_add' product.id %}" method="post">
             {{ cart_product_form }}
             {% csrf_token %}
-            <input class="btn btn-primary" type="submit" value="Add to cart">
+            <input class="btn btn-primary" type="submit" value="Next">
           </form>
 
           <div style="margin-top:20px;">
@@ -28,7 +28,26 @@
       </div>
     </div>
 
-</div>
+</div> -->
 
+<article class="grid-container">
+  <div class="grid-x grid-margin-x">
+      <div class="medium-6 cell" align="center">
+        <img class="thumbnail" src="{{ object.get_image_url}}">
+      </div>
+      <div class="medium-6 large-5 cell large-offset-1">
+        <h3>{{ object.title }}</h3>
+        <p>{{ object.description }}</p>
+        <h3>Price: ${{object.price}}</h3>
+        <div class="grid-x">
+        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+          {{ cart_product_form }}
+          {% csrf_token %}
+          <input class="button large expanded" type="submit" value="Add to Cart">
+        </form>
+        </div>
+      </div>
+    </div>
+</article>
 
 {%endblock%}

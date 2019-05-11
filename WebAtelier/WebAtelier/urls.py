@@ -17,13 +17,15 @@ from django.contrib import admin
 from django.conf import settings
 from django.urls import path, include
 from django.conf.urls.static import static
-from Home import views
+from Home.views import Home, contact
 from product.views import ProductListView, ProductDetailView
+from Home.views import Home
 
 urlpatterns = [
-    path('', views.index ,name="index"),
+    path('', Home.as_view(),name="index"),
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls'), name='cart'),
+    path('contact/', contact, name='contact'),
     #path('category/<slug:slug>', )
     path('products/', ProductListView.as_view(), name='products'),
     path('products/<slug:slug>-<int:id>/', ProductDetailView.as_view(), name='products_detail'),
