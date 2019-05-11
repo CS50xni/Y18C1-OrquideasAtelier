@@ -139,3 +139,6 @@ MEDIA_ROOT = os.path.join(PROJECT_DIR, "media")
 
 #var CART_SESSION_ID
 CART_SESSION_ID = 'cart'
+
+#site url
+SITE_URL = 'localhost:8000/'
