@@ -262,3 +262,30 @@ transition: all 0.3s ease;
     color: #2154e3; 
     font-size: 0.95rem;
 }
+
+.footer-nav {
+  max-width: 75rem;
+  margin-right: auto;
+  margin-left: auto;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #2196e3;
+  padding: 2rem;
+  width: 100%;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.footer-copyright {
+  color: #ffff;
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+
+.row .expanded {
+  max-width: none;
+}
