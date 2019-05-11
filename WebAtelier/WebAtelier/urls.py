@@ -19,9 +19,10 @@ from django.urls import path, include
 from django.conf.urls.static import static
 from Home import views
 from product.views import ProductListView, ProductDetailView
+from Home.views import Home
 
 urlpatterns = [
-    path('', views.index ,name="index"),
+    path('', Home.as_view(),name="index"),
     path('admin/', admin.site.urls),
     path('cart/', include('cart.urls'), name='cart'),
     #path('category/<slug:slug>', )
